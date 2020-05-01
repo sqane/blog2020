@@ -1,0 +1,98 @@
+{% extends 'base/layout.html' %}
+{% block title %} Блог {% endblock %}
+{% block header %}Блог {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="row">
+         <div class="col s6" style="
+padding-left: 180px;
+padding-right: 180px;
+padding-top: 30px;
+">
+        <div style="line-height: 28px;" class="row">
+            <img src="/static/images/new.svg">
+            <img src="/static/images/like.svg">
+            <img src="/static/images/comments.svg">
+            <img src="/static/images/views.svg">
+
+        </div>
+
+        <p style="
+font-size: 45px;
+line-height: 52px;
+/* or 116% */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.416667px;
+
+color: #315AF2;">{{ last.name}}</p>
+          {% autoescape off %} {{last.description }}{% endautoescape %}
+        <a style="background: #315AF2;width: 148px;
+height: 68px; font-size: 36px;
+
+font-family: Museo Cyrl;
+line-height: 43px;
+display: flex;
+text-transform: none;
+text-align: center;
+align-items: center;" class="waves-effect  btn">Читать</a>
+    </div>
+        <div style="padding-top: 180px" class="col s6">
+            <img style="max-width: 500px"  src="{{last.image.url}}">
+        </div>
+
+
+    </div>
+
+    <div class="card">
+        <div style="
+padding-left: 180px;
+padding-right: 180px;
+padding-top: 30px;
+">
+            <p style="font-family: Museo Cyrl;
+font-size: 36px;
+line-height: 20px;
+/* or 56% */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.416667px;
+
+color: #315AF2;">Другие статьи</p>
+
+            <div class="row">
+
+                {% for i in posts %}
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                 <span style="position: absolute;z-index: 10000;font-family: Circe Rounded;
+font-size: 12px;
+line-height: 20px;
+align-items: center;
+padding-top: 4px;padding-left: 4px"> {{i.date}}</span>
+                            <img src="{{ i.image.url}}"><br>
+
+                        </div>
+                        <span class="card-title">{{i.name}}</span>
+                        <div class="card-content">
+                            <div class="row">
+                                <img src="/static/images/like.svg">
+                                <img src="/static/images/comments.svg">
+                                <img src="/static/images/views.svg">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

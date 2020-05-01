@@ -1,0 +1,12 @@
+{% extends 'base/layout.html' %}
+{% block title %} Блог {% endblock %}
+{% block header %}Блог {% endblock %}
+{% block content %}
+<div class="card" style="padding-left: 180px;padding-right: 180px">
+<form action="" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form }}<br>
+    <input type="submit" value="Сохранить">
+</form>
+</div>
+{% endblock %}
