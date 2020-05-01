@@ -1,4 +1,4 @@
-Django==2.1.4
+Django==2.2.10
 psycopg2==2.8.5
 pillow==7.1.2
 django-summernote==0.8.11.6
